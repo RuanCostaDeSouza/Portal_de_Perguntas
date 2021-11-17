@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Portal de Perguntas</title>
+</head>
+<body>
+    <header  >
+        <div class="head">
+            <div class="imgHeader">
+                <a href="../index.html"><img src="/public/img/" style=" border-radius: 10px; width: 180px; height: 60px;"></a>
+            </div>
+            <nav class="navegacao">
+                <ul class="menu">
+                    <li><a href="../Paginas/servicos.html">Perguntas</a></li>
+                    <li><a href="../Paginas/servicos.html">Minha area</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <div class="box">
+        <form action="/formulario" method="post">
+            <fieldset>
+                
+                <legend><b>Formulario de Pergunta</b></legend>
+                
+                <div class="inputBox">
+                    <input type="text" name="nome" id="nome" class="inputUser" required>
+                    <label for="nome"class="labelInput">Nome completo</label>
+                </div>
+
+                <div class="inputBox">
+                    <input type="email" name="email" id="email" class="inputUser" required>
+                    <label for="email"class="labelInput">E-mail</label>
+                </div>
+
+                <div class="inputBox">
+                    <input type="text" name="titulo" id="titulo" class="inputUser" required>
+                    <label for="titulo"class="labelInput">titulo da pergunta</label><br>
+                </div>
+
+                    <label for="data_necessidade"><b>Data da necessidade: </b></label>
+                    <input type="date" name="data_necessidade" id="data_necessidade" required>
+
+                <div class="inputBox">
+                    <label for="mensagem" class="labelInput">Deixe aqui sua Pergunta:</label><br>
+
+                    <textarea rows="10" style="width: 26em;" id="mensagem" name="descricao"></textarea>
+                </div>
+
+                <input type="submit" name="submit" id="submit" >
+
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
