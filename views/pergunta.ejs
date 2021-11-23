@@ -26,4 +26,34 @@
           <p class="card-text"><%= pergunta.descricao %></p>
         </div>
     </div>
+
+    <% resposta.forEach(respostas =>{%>
+
+        <div class="card">
+            <div class="card-header text-white bg-dark">
+                <h4><%= respostas.nome%></h4>
+            </div>
+            <div class="card-body">
+                <p class="card-text"><%= respostas.Resposta %></p>
+              </div>
+          </div><br>
+
+    <% })%>
+
+    <form action="/resposta" method="post">
+        <div class="mb-3">
+         <label for="exampleFormControlInput1" class="form-label" >Seu nome:</label>
+          <input type="text" class="form-control" id="exampleFormControlInput1" name="nome"  required>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlTextarea1" class="form-label" >Resposta</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="resposta"></textarea>
+        </div>
+        <input type="hidden" name="idResposta" value="<%= pergunta.id %>">
+        <button type="submit" class="btn btn-success">responder</button>
+    </form>
 </div>
+
+</body>
+</html>

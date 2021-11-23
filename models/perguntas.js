@@ -1,5 +1,6 @@
 const conexao = require('../infraestrutura/conexao');
 const tabela = require('../infraestrutura/tabelas')
+const resposta = require('../infraestrutura/Resostas')
 
 
 class Perguntas{
@@ -23,13 +24,26 @@ class Perguntas{
         const id = perguntaPesquisada
         tabela.findOne({where:{id:id}}).then(perguntas=>{
             if(perguntas !=undefined){
-                res.render('pergunta',{
-                    pergunta:perguntas
+                resposta.findAll({where:{
+                    perguntaID:id
+                }}).then(respostas=>{
+                    res.render('pergunta',{
+                        pergunta:perguntas,
+                        resposta: respostas
+                    })
                 })
+               
             }else{
                 res.send('Pergunta não encontrada!')
             }
         })
+    }
+    adicionaResposta(nome, Resposta,id,res){
+        resposta.create({
+            nome:nome,
+            Resposta:Resposta,
+            perguntaID:id
+        }).then(res.redirect('./pergunta/'+id)).catch(erro=>console.log(erro))
     }
 
     
