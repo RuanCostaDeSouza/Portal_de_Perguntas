@@ -1,12 +1,8 @@
-const mysql = require('mysql2')
+const Sequelize = require('sequelize')
 
-
-const conexao = mysql.createConnection({
+const conexao = new Sequelize('portalPerguntas', 'root', 'Dolly3000',{
     host:'localhost',
-    port:3306,
-    user:'root',
-    password:'Dolly3000',
-    database:'portalPerguntas'
+    dialect:'mysql'
 })
 
 module.exports = conexao

@@ -1,28 +1,26 @@
 const conexao = require('./conexao')
+const Sequelize = require('sequelize')
 
+const tabelas = conexao.define('Perguntas',{
+    nome:{
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
 
-class tabelas{
-    init(conexao){
-        this.conexao = conexao
-        this.criarPergunta()
+    titulo:{
+        type:Sequelize.STRING,
+        allowNull: false,
+    },
+
+    descricao:{
+        type:Sequelize.TEXT,
+        allowNull: false,
     }
+})
 
-    criarPergunta(){
-        const sql = 'CREATE TABLE IF NOT EXISTS perguntas(id int NOT NULL AUTO_INCREMENT,nome varchar(50) NOT NULL, titulo varchar (100), descricao text, PRIMARY KEY (id))'
-        
-        this.conexao.query(sql, (erro) =>{
+tabelas.sync({force:false}).then(()=>{
+    console.log('Conectado')
+}).catch((erro)=>console.log(erro))
 
-            if (erro){
-            
-            console.log(erro)
-            
-            } else {
-            
-            console.log('tabelas inicializadas com sucesso!!!')
-            
-            }
-            
-             })}
-}
 
-module.exports = new tabelas
+module.exports = tabelas

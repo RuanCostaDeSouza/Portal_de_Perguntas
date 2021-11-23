@@ -4,57 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <title>Portal de Perguntas</title>
 </head>
 <body>
-    <header  >
-        <div class="head">
-            <div class="imgHeader">
-                <a href="../index.html"><img src="/public/img/" style=" border-radius: 10px; width: 180px; height: 60px;"></a>
+    <nav class="navbar navbar-dark bg-dark">
+        <div class="container">
+                <a href="/allquests" class="navbar-brand">Portal perguntas</a>
+            <div class="navbar-nav">
+                <a class="btn btn-outline-success" aria-current="page" href="/formulario">Perguntar</a>
             </div>
-            <nav class="navegacao">
-                <ul class="menu">
-                    <li><a href="../Paginas/servicos.html">Perguntas</a></li>
-                    <li><a href="../Paginas/servicos.html">Minha area</a></li>
-
-                </ul>
-            </nav>
         </div>
-    </header>
-    <div class="box">
+    </nav>
+    <div class="container">
+        <div class="card text-white bg-dark">
+            <div class="card-header">
+                <h1>Faça sua pergunta</h1>
+            </div>
+        </div>
+      </div>
+    <div class="container">
         <form action="/formulario" method="post">
-            <fieldset>
-                
-                <legend><b>Formulario de Pergunta</b></legend>
-                
-                <div class="inputBox">
-                    <input type="text" name="nome" id="nome" class="inputUser" required>
-                    <label for="nome"class="labelInput">Nome completo</label>
-                </div>
-
-                <div class="inputBox">
-                    <input type="email" name="email" id="email" class="inputUser" required>
-                    <label for="email"class="labelInput">E-mail</label>
-                </div>
-
-                <div class="inputBox">
-                    <input type="text" name="titulo" id="titulo" class="inputUser" required>
-                    <label for="titulo"class="labelInput">titulo da pergunta</label><br>
-                </div>
-
-                    <label for="data_necessidade"><b>Data da necessidade: </b></label>
-                    <input type="date" name="data_necessidade" id="data_necessidade" required>
-
-                <div class="inputBox">
-                    <label for="mensagem" class="labelInput">Deixe aqui sua Pergunta:</label><br>
-
-                    <textarea rows="10" style="width: 26em;" id="mensagem" name="descricao"></textarea>
-                </div>
-
-                <input type="submit" name="submit" id="submit" >
-
-            </fieldset>
+            <div class="mb-3">
+             <label for="exampleFormControlInput1" class="form-label" >Seu nome</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1" name="nome"  required>
+            </div>
+            <div class="mb-3">
+             <label for="exampleFormControlInput1" class="form-label">Titulo</label>
+              <input type="text" class="form-control" id="exampleFormControlInput1"  name="titulo" required>
+            </div>
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label" >Descrição</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="descricao"></textarea>
+            </div>
+            <a href="/allquests"><input type="submit" class="btn btn-success"></a>
         </form>
     </div>
 </body>

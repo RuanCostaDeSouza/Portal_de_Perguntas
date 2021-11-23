@@ -1,16 +1,33 @@
 const conexao = require('../infraestrutura/conexao');
+const tabela = require('../infraestrutura/tabelas')
 
 
 class Perguntas{
-    adiciona(pergunta,res){
-        const novaPergunta = pergunta
-        const sql = 'INSERT INTO perguntas SET ?'
-        conexao.query(sql, novaPergunta,(erro)=>{
-            if(erro){
-                res.send('ops algo deu errado')
-                console.log(erro)
+    adiciona(nome,titulo,descricao,res){
+        tabela.create({
+            nome:nome,
+            titulo:titulo,
+            descricao:descricao
+        }).then(res.redirect('/allquests')).catch((erro)=>console.log(erro))
+    }
+
+    lista(res){
+        tabela.findAll({raw:true, order:[['id','DESC']]}).then(perguntas=>{
+            res.render('listaPerguntas',{
+                perguntas:perguntas
+            })
+        })
+    }
+
+    buscaID(perguntaPesquisada,res){
+        const id = perguntaPesquisada
+        tabela.findOne({where:{id:id}}).then(perguntas=>{
+            if(perguntas !=undefined){
+                res.render('pergunta',{
+                    pergunta:perguntas
+                })
             }else{
-                res.send('formulario enviado ao servidor')
+                res.send('Pergunta não encontrada!')
             }
         })
     }
