@@ -12,3 +12,4 @@ conexao.authenticate()
     }).catch((erro)=>{
         console.log(erro)
     })
+    
