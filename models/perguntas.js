@@ -26,16 +26,17 @@ class Perguntas{
             if(perguntas !=undefined){
                 resposta.findAll({where:{
                     perguntaID:id
-                }}).then(respostas=>{
+                },order:[['id','DESC']]}).then(respostas=>{
                     res.render('pergunta',{
                         pergunta:perguntas,
                         resposta: respostas
                     })
                 })
                
-            }else{
-                res.send('Pergunta não encontrada!')
             }
+        }).catch((erro)=>{
+            console.log(erro)
+            res.send("pagina não encontrada")
         })
     }
     adicionaResposta(nome, Resposta,id,res){
