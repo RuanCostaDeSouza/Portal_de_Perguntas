@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "portal de perguntas e respostas feito com node ",
   "main": "index.js",
-  "engines":{
+  "engines": {
     "node": "14.x"
   },
   "scripts": {
@@ -17,6 +17,7 @@
     "consign": "^0.1.6",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
+    "mysql2": "^2.3.3",
     "nodemon": "^2.0.15",
     "sequelize": "^6.12.0-alpha.1"
   }

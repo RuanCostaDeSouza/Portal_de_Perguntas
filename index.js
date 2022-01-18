@@ -3,7 +3,7 @@ const conexao = require('./infraestrutura/conexao')
 const tabelas = require('./infraestrutura/tabelas')
 const Respostas = require('./infraestrutura/Resostas')
 
-const PORT = process.env.PORT || 5050
+const PORT = process.env.PORT || 3000
 
 conexao.authenticate()
     .then(()=>{
